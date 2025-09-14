@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>College Attendance — Login</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="loginpage/style.css">
+
+  <!-- Meta for theme color -->
+  <meta name="theme-color" content="#2b6ef6">
+</head>
+<body>
+  <main class="page">
+    
+    <section class="hero-left">
+      <div class="brand">
+        <!-- Replace 'college-logo.png' with your logo file name -->
+        <img src="loginpage/logo.png" alt="College Logo" class="college-logo">
+      </div>
+       <div class="ms">
+          <h1>Bakhtiyarpur College of engineering</h1>
+          <p class="sub">Automated Attendance Monitoring & Analytics</p>
+        </div>
+      <p class="note">(Secure • Time-bound QR • Geo-fenced • Live count)</p>
+    </section>
+
+    <section class="login-card" aria-labelledby="login-heading">
+      <h2 id="login-heading">Sign in to Attendance System</h2>
+
+      <!-- Role selector -->
+      <div class="role-tabs" role="tablist" aria-label="Select role">
+        <button class="role active" data-role="student" aria-selected="true">Student</button>
+        <button class="role" data-role="faculty" aria-selected="false">Faculty</button>
+        <button class="role" data-role="admin" aria-selected="false">Administrator</button>
+      </div>
+
+      <!-- Form -->
+      <form id="login-form" class="form" action="#" method="post" autocomplete="off">
+        <input type="hidden" name="role" id="role-input" value="student">
+
+        <label class="field">
+          <span class="label-text">Username / Roll No.</span>
+          <input type="text" name="username" id="username" required placeholder="e.g. 24CS37" autocomplete="username">
+        </label>
+
+        <label class="field">
+          <span class="label-text">Password</span>
+          <div class="password-wrap">
+            <input type="password" name="password" id="password" required placeholder="Enter your password" autocomplete="current-password">
+            <button type="button" id="toggle-pass" class="eye-btn" aria-label="Show password">&#128065;</button>
+          </div>
+        </label>
+
+        <div class="row">
+          <label class="checkbox">
+            <input type="checkbox" name="remember" id="remember">
+            <span>Remember me</span>
+          </label>
+
+          <a href="#" class="forgot">Forgot?</a>
+        </div>
+
+        <button type="submit" class="btn primary">Sign In</button>
+
+        <div class="divider"><span>or</span></div>
+
+        <div class="alt-actions">
+          <a href="#" class="support">Need help? Contact admin</a>
+        </div>
+      </form>
+
+      <footer class="small">
+        <p>© 2025 Bakhtiyarpur College • Built for Smart India Hackathon</p>
+      </footer>
+    </section>
+  </main>
+
+ 
+</body>
+</html>
