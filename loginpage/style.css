@@ -22,37 +22,6 @@ body{
   background: linear-gradient(180deg, #eef3ff 0%, #fbfdff 100%);
   color:#0f172a;
 }
-
-/* Page layout */
-.page {
-  max-width: var(--max-width);
-  margin: 32px auto;
-  display: grid;
-  grid-template-columns: 1fr 420px; /* desktop view */
-  gap: 28px;
-  padding: 28px;
-  align-items: center;
-}
-
-/* 📱 Mobile view: stack vertically */
-@media (max-width: 768px) {
-  .page {
-    grid-template-columns: 1fr; /* ek hi column */
-  }
-
-  .hero-left {
-    order: 1; /* pehle upar college details */
-    text-align: center; /* mobile ke liye acha lagega */
-  }
-
-  .login-card {
-    order: 2; /* niche login form */
-    max-width: 100%; /* chhota screen me fit */
-  }
-}
-
-
-
 /* Left hero panel */
 .hero-left{
   background: #aeb7bf81;
@@ -133,6 +102,38 @@ body{
   font-size:20px;
   letter-spacing:0.2px;
 }
+/* Page layout */
+.page {
+  max-width: var(--max-width);
+  margin: 32px auto;
+  display: grid;
+  grid-template-columns: 1fr 420px; /* desktop */
+  gap: 28px;
+  padding: 28px;
+  align-items: center;
+}
+
+/* 📱 Mobile fix */
+@media (max-width: 768px) {
+  .page {
+    display: flex;
+    flex-direction: column; /* side-by-side ke bajaye top-bottom */
+    padding: 16px;
+  }
+
+  .hero-left {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto; /* center align */
+  }
+}
+
 
 /* Role tabs */
 .role-tabs{
@@ -244,3 +245,4 @@ body{
   .hero-left{ order:2; }
   .login-card{ order:1; }
 }
+
