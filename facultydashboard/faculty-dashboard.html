@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Dashboard</title>
+  <link rel="stylesheet" href="faculty-style.css">
+</head>
+<body>
+  <div class="dashboard">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">🎓 BCE</div>
+      <ul>
+        <li class="active">📊 Dashboard</li>
+        <li>👨‍🎓 Students</li>
+        <li>📅 Classes</li>
+        <li>📤 export</li>
+        <li id="emergency">🚨 Emergency Attendance</li>
+        <li>📝 Complaints</li>
+        <li>🚪 Logout</li>
+      </ul>
+    </aside>
+
+    <!-- Main Area -->
+    <div class="main">
+      
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="greeting">
+          <h2 id="greetText">Good Morning,</h2>
+          <p>Dr. Anil Sharma</p>
+        </div>
+        <div class="top-actions">
+          <input type="text" id="searchBox" placeholder="🔍 Search students..." />
+          <button id="bell" class="icon-btn">🔔</button>
+          <div class="profile">
+            <img src="../logo.png" alt="Profile">
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main class="content">
+        
+        <!-- QR + Live Count -->
+        <section class="card center-card">
+          <h3>Generate Attendance QR</h3>
+          <button id="generateQR" class="btn qr-btn">➕ Generate QR</button>
+          <p class="live-count">Live Count: <span id="liveNumber">0</span></p>
+        </section>
+
+        <!-- Student List -->
+        <section class="card">
+          <h3>Student List</h3>
+          <ul id="studentList">
+            <li>24CS01 – Rohan Kumar</li>
+            <li>24CS02 – Anjali Singh</li>
+            <li>24CS03 – Amit Verma</li>
+            <li>24CS04 – Priya Sharma</li>
+          </ul>
+        </section>
+
+        <!-- Complaints -->
+        <section class="card">
+          <h3>Active Complaints</h3>
+          <ul class="complaints">
+            <li>❗ Rohan Kumar – “Attendance not updated for 10th Sept”</li>
+            <li>❗ Anjali Singh – “Couldn’t scan QR (network issue)”</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="faculty.js"></script>
+</body>
+</html>
