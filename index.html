@@ -23,7 +23,7 @@
         <img src="loginpage/logo.png" alt="College Logo" class="college-logo">
       </div>
        <div class="ms">
-          <h1>Bakhtiyarpur College of engineering</h1>
+          <h1>Bakhtiyarpur College of Engineering</h1>
           <p class="sub">Automated Attendance Monitoring & Analytics</p>
         </div>
       <p class="note">(Secure • Time-bound QR • Geo-fenced • Live count)</p>
@@ -40,7 +40,7 @@
       </div>
 
       <!-- Form -->
-      <form id="login-form" class="form" action="#" method="post" autocomplete="off">
+      <form id="login-form" class="form" autocomplete="off">
         <input type="hidden" name="role" id="role-input" value="student">
 
         <label class="field">
@@ -80,6 +80,31 @@
     </section>
   </main>
 
- 
+  <!-- ✅ JavaScript for Dummy Login -->
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(e) {
+      e.preventDefault(); // Stop default form action
+
+      let username = document.getElementById("username").value.trim();
+      let password = document.getElementById("password").value.trim();
+
+      // Dummy check
+      if (username === "24CS37" && password === "123") {
+        window.location.href = "studentdashboard/student-dashboard.html"; // Redirect to student dashboard
+      } else {
+        alert("Invalid credentials! Try again.");
+      }
+    });
+
+    // Show/Hide password
+    document.getElementById("toggle-pass").addEventListener("click", function() {
+      let passField = document.getElementById("password");
+      if (passField.type === "password") {
+        passField.type = "text";
+      } else {
+        passField.type = "password";
+      }
+    });
+  </script>
 </body>
 </html>
