@@ -19,13 +19,12 @@
     
     <section class="hero-left">
       <div class="brand">
-        <!-- Replace 'college-logo.png' with your logo file name -->
         <img src="loginpage/logo.png" alt="College Logo" class="college-logo">
       </div>
-       <div class="ms">
-          <h1>Bakhtiyarpur College of Engineering</h1>
-          <p class="sub">Automated Attendance Monitoring & Analytics</p>
-        </div>
+      <div class="ms">
+        <h1>Bakhtiyarpur College of Engineering</h1>
+        <p class="sub">Automated Attendance Monitoring & Analytics</p>
+      </div>
       <p class="note">(Secure • Time-bound QR • Geo-fenced • Live count)</p>
     </section>
 
@@ -44,7 +43,7 @@
         <input type="hidden" name="role" id="role-input" value="student">
 
         <label class="field">
-          <span class="label-text">Username / Roll No.</span>
+          <span class="label-text">Username / ID</span>
           <input type="text" name="username" id="username" required placeholder="e.g. 24CS37" autocomplete="username">
         </label>
 
@@ -61,7 +60,6 @@
             <input type="checkbox" name="remember" id="remember">
             <span>Remember me</span>
           </label>
-
           <a href="#" class="forgot">Forgot?</a>
         </div>
 
@@ -80,29 +78,48 @@
     </section>
   </main>
 
-  <!-- ✅ JavaScript for Dummy Login -->
   <script>
-    document.getElementById("login-form").addEventListener("submit", function(e) {
-      e.preventDefault(); // Stop default form action
+    // --- Role Switching ---
+    const roles = document.querySelectorAll(".role");
+    const roleInput = document.getElementById("role-input");
 
-      let username = document.getElementById("username").value.trim();
-      let password = document.getElementById("password").value.trim();
-
-      // Dummy check
-      if (username === "24CS37" && password === "123") {
-        window.location.href = "studentdashboard/student-dashboard.html"; // Redirect to student dashboard
-      } else {
-        alert("Invalid credentials! Try again.");
-      }
+    roles.forEach(btn => {
+      btn.addEventListener("click", () => {
+        roles.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        roleInput.value = btn.dataset.role;
+      });
     });
 
-    // Show/Hide password
+    // --- Show/Hide Password ---
     document.getElementById("toggle-pass").addEventListener("click", function() {
-      let passField = document.getElementById("password");
-      if (passField.type === "password") {
-        passField.type = "text";
+      const passField = document.getElementById("password");
+      passField.type = (passField.type === "password") ? "text" : "password";
+    });
+
+    // --- Dummy Credentials ---
+    const credentials = {
+      student: {username: "24CS37", password: "123"},
+      faculty: {username: "faculty01", password: "123"},
+      admin: {username: "admin01", password: "123"}
+    };
+
+    // --- Login Form ---
+    document.getElementById("login-form").addEventListener("submit", function(e){
+      e.preventDefault();
+      const role = roleInput.value;
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      const cred = credentials[role];
+
+      if(username === cred.username && password === cred.password){
+        // Redirect based on role
+        if(role === "student") window.location.href = "studentdashboard/student-dashboard.html";
+        else if(role === "faculty") window.location.href = "facultydashboard/faculty-dashboard.html";
+        else if(role === "admin") window.location.href = "admindashboard/admin-dashboard.html";
       } else {
-        passField.type = "password";
+        alert("Invalid credentials for " + role + "! Try again.");
       }
     });
   </script>
